@@ -1,6 +1,8 @@
 ﻿#ifndef __STACK_H__
 #define __STACK_H__
 
+#include <iostream>
+
 const int MaxStackSize = 100;
 
 template <class T>
@@ -19,6 +21,15 @@ public:
 		pMem = new T[size];
 	}
 
+	TStack(TStack &s)
+	{
+		size = s.size;
+		top = s.top;
+		pMem = new T[size];
+		for (int i = 0; i < top + 1; i++)
+			pMem[i] = s.pMem[i];
+	}
+
 	bool IsEmpty()
 	{
 		return (top == -1);
@@ -29,27 +40,23 @@ public:
 		return (top == (size - 1));
 	}
 
-	T Pop()
+	T Pop() //взять
 	{
 		if (!IsEmpty())
 			return pMem[top--];
 		else
 			throw "Empty";
-		T a;
-		return a;
 	}
 
-	T Top()
+	T Top()//посмотреть
 	{
 		if (!IsEmpty())
 			return pMem[top];
 		else
 			throw "Empty";
-		T a;
-		return a;
 	}
 
-	void Push(T v)
+	void Push(T v)//положить
 	{
 		if (!IsFull())
 			pMem[++top] = v;
