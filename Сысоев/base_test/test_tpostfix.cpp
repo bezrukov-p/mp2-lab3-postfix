@@ -1,4 +1,5 @@
 #include "postfix.h"
+#include "postfix.cpp"
 #include <gtest.h>
 #include <string>
 
@@ -21,26 +22,27 @@ TEST(TPostfix, can_get_infix)
 
 TEST(TPostfix, can_create_postfix_from_infix)
 {
-	/*TPostfix p("a+b");
-	EXPECT_EQ("a,b,+,", p.GetPostfix());*/
+	TPostfix p("a+b");
+	p.ToPostfix();
+	EXPECT_EQ("a,b,+,", p.GetPostfix());
 }
 
 TEST(TPostfix, CheckInfix_return_true_when_infix_is_correct)
 {
-	/*TPostfix p("a+b");
-	EXPECT_TRUE(p.CheckInfix());*/
+	TPostfix p("a+b");
+	EXPECT_TRUE(p.CheckInfix());
 }
 
 TEST(TPostfix, CheckInfix_return_false_when_infix_is_invalid)
 {
-	/*TPostfix p("(a+-b");
-	EXPECT_FALSE(p.CheckInfix());*/
+	TPostfix p("(a+-b");
+	EXPECT_FALSE(p.CheckInfix());
 }
 
 TEST(TPostfix, can_calculate_expression)
 {
-	/*TPostfix p("(2+2*(2+2)");
-	EXPECT_EQ(10,p.Calculate());*/
+	TPostfix p("2+2*(2+2)");
+	EXPECT_EQ(10,p.Calculate());
 }
 
 
