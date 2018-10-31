@@ -19,7 +19,7 @@ int main()
 	  {
 	  case 1:
 	  {
-		  cout << "Warning" << endl;
+		  cout << "Have to be entered without spaces." << endl;
 		  cout << "Enter an arithmetic expression: ";
 		  cin >> expression;
 		  TPostfix postfix(expression);
@@ -35,7 +35,7 @@ int main()
 	  }
 	  case 2:
 	  {
-		  cout << "Warning" << endl;
+		  cout << "Have to be entered without spaces." << endl;
 		  cout << "Enter an arithmetic expression: ";
 		  cin >> expression;
 		  TPostfix postfix(expression);
