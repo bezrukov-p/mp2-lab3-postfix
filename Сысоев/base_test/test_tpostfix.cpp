@@ -20,11 +20,18 @@ TEST(TPostfix, can_get_infix)
 	EXPECT_EQ("a+b", p.GetInfix());
 }
 
-TEST(TPostfix, can_create_postfix_from_infix)
+TEST(TPostfix, can_create_postfix_from_infix1)
 {
 	TPostfix p("a+b");
 	p.ToPostfix();
 	EXPECT_EQ("a,b,+,", p.GetPostfix());
+}
+
+TEST(TPostfix, can_create_postfix_from_infix2)
+{
+	TPostfix p("a+(b-c)*d-e+f");
+	p.ToPostfix();
+	EXPECT_EQ("a,b,c,-,d,*,+,e,-,f,+,", p.GetPostfix());
 }
 
 TEST(TPostfix, CheckInfix_return_true_when_infix_is_correct)
