@@ -43,6 +43,8 @@ double TPostfix::Operation(double left, double right, char c)
 	}
 	case '/':
 	{
+		if (right == 0)
+			throw 0;
 		return left / right;
 	}
 	default:
